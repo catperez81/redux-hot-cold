@@ -1,21 +1,27 @@
-import { } from './actions';
+import {GENERATE_AURAL_UPDATE, generalAuralUpdate, RESTART_GAME, restartGame, MAKE_GUESS, makeGuess } from './actions';
 
-// describe('addList', () => {
-//     it('Should return the action', () => {
-//         const title = 'List title';
-//         const action = addList(title);
-//         expect(action.type).toEqual(ADD_LIST);
-//         expect(action.title).toEqual(title);
-//     });
-// });
+describe('generalAuralUpdate', () => {
+    it('Should return the action', () => {
+        const action = generalAuralUpdate();
+        expect(action.type).toEqual(GENERATE_AURAL_UPDATE);
+    });
+});
 
-// describe('addCard', () => {
-//     it('Should return the action', () => {
-//         const text = 'Card text';
-//         const listIndex = 10;
-//         const action = addCard(text, listIndex);
-//         expect(action.type).toEqual(ADD_CARD);
-//         expect(action.text).toEqual(text);
-//         expect(action.listIndex).toEqual(listIndex);
-//     });
-// });
+describe('restartGame', () => {
+    it('Should return the action', () => {
+    	const correctAnswer = 25;
+        const action = restartGame(correctAnswer);
+        expect(action.type).toEqual(RESTART_GAME);
+        expect(action.correctAnswer).toEqual(correctAnswer);
+    });
+});
+
+describe('MAKE_GUESS', () => {
+    it('Should return the action', () => {
+    	const correctAnswer = 25;
+        const action = makeGuess(guess);
+        expect(action.type).toEqual(MAKE_GUESS);
+        expect(action.guess).toEqual(guess);
+    });
+});
+
