@@ -1,3 +1,4 @@
+// MQ: why import both here for each action ? // 
 import {GENERATE_AURAL_UPDATE, generalAuralUpdate, RESTART_GAME, restartGame, MAKE_GUESS, makeGuess } from './actions';
 
 describe('generalAuralUpdate', () => {

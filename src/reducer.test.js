@@ -1,2 +1,12 @@
-import {initialState} from './reducer';
-import {RESTART_GAME, MAKE_GUESS, GENERATE_AURAL_UPDATE} from './actions';
+import {reducer} from './reducer';
+import {restartGame, makeGuess, generalAuralUpdate} from './actions';
+
+
+describe('Reducer', () => {
+	it('Should set the initial state', () => {
+		let state =  reducer(undefined, {type: '_UNKNOWN'});
+
+		expect(state).toEqual({[]});
+		
+	});
+});
