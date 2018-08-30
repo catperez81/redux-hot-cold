@@ -1,4 +1,4 @@
-// MQ: why import both here for each action ? // 
+// Lowercase one is function, the uppercase is the type, so need to compare those for a match // 
 import {GENERATE_AURAL_UPDATE, generalAuralUpdate, RESTART_GAME, restartGame, MAKE_GUESS, makeGuess } from './actions';
 
 describe('generalAuralUpdate', () => {

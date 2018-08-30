@@ -2,15 +2,17 @@ import {reducer} from './reducer';
 import {restartGame, makeGuess, generalAuralUpdate} from './actions';
 
 
+//reducer generates initial state //
+
 describe('Reducer', () => {
 	it('Should set the initial state', () => {
-		// why pass through undefined? and type unknown? //
-		const state =  reducer(undefined, {type: '_UNKNOWN'});
+		// in the reducer, default is initial state, if undefined we set it to initial state. Unknown could be whatever you want - return state would return this, an action that doesn't exist. You have to pass an action as an arguement - placeholder to run the test / no effect. //
+		const state =  reducer(undefined, {type: 'placeholder'});
 
-		expect(state.guesses).toEqual({[]});
+		expect(state.guesses).toEqual([]);
 		expect(state.feedback).toEqual('Make a guess!');
 		expect(state.auralStatus).toEqual('');
-		//never heard of the below method around greater than or equal to - is this just redux? //
+		// method that exists in testing framework from expect //
 		expect(state.correctAnswer).toBeGreaterThanOrEqual('0');
 		expect(state.correctAnswer).toBeLessThanOrEqual('100');
 	});
@@ -26,11 +28,10 @@ describe('RestartGame', () => {
 		};
 
 		const correctAnswer = 20;
-		// why is the below not an object and just an array? //
+		state = reducer(state, restartGame(correctAnswer));
 		expect(state.guesses).toEqual([]);
 		expect(state.feedback).toEqual('Make a guess!');
 		expect(state.auralStatus).toEqual('');
-		// why is the below different than the above for reducer?//
 		expect(state.correctAnswer).toEqual(correctAnswer);
 });
 
@@ -41,6 +42,8 @@ describe('MakeGuess', () => {
 		feedback: '', 
 		correctAnswer: 100
 	};
+
+	// making sure reducer is calculating right feedback //
 
 	state = reducer(state, makeGuess(20));
 	expect(state.guesses).toEqual([20]);
