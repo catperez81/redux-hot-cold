@@ -33,3 +33,35 @@ describe('RestartGame', () => {
 		// why is the below different than the above for reducer?//
 		expect(state.correctAnswer).toEqual(correctAnswer);
 });
+
+describe('MakeGuess', () => {
+	it('Should make a guess', () => {
+	let state = {
+		guesses: [],
+		feedback: '', 
+		correctAnswer: 100
+	};
+
+	state = reducer(state, makeGuess(20));
+	expect(state.guesses).toEqual([20]);
+	expect(state.feedback).toEqual("You're Ice Cold...");
+
+	state = reducer(state, makeGuess(50));
+	expect(state.guesses).toEqual([50]);
+	expect(state.feedback).toEqual("You're Cold...");
+
+	state = reducer(state, makeGuess(70));
+	expect(state.guesses).toEqual([70]);
+	expect(state.feedback).toEqual("You're Warm...");
+
+	state = reducer(state, makeGuess(90));
+	expect(state.guesses).toEqual([90]);
+	expect(state.feedback).toEqual("You're Hot...");
+
+	state = reducer(state, makeGuess(100));
+	expect(state.guesses).toEqual([100]);
+	expect(state.feedback).toEqual("You got it!");
+
+
+	});
+});
