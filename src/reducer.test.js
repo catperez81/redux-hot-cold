@@ -26,9 +26,10 @@ describe('RestartGame', () => {
 		};
 
 		const correctAnswer = 20;
-
+		// why is the below not an object and just an array? //
 		expect(state.guesses).toEqual([]);
 		expect(state.feedback).toEqual('Make a guess!');
 		expect(state.auralStatus).toEqual('');
+		// why is the below different than the above for reducer?//
 		expect(state.correctAnswer).toEqual(correctAnswer);
 });
